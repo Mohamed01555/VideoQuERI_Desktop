@@ -49,7 +49,9 @@ VideoQuERI is a chatbot powered by GPT-3.5 and YouBot designed for generating vi
 
 ## Screenshots
 
-[Include screenshots here]
+- [Home screen](https://github.com/Mohamed01555/VideoQuERI_Desktop/blob/main/Screen%201.png)
+- [Caption screen](https://github.com/Mohamed01555/VideoQuERI_Desktop/blob/main/Screen%202.png)
+- [Chat Screen](https://github.com/Mohamed01555/VideoQuERI_Desktop/blob/main/Screen%203.png)
 
 ## Contributing
 
