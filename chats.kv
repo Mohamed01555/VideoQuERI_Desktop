@@ -1,0 +1,154 @@
+<Command>
+    size_hint_y: None
+
+    pos_hint: {"right": .98}
+    height: self.texture_size[1]
+    readonly:False
+    markup:True
+    padding: 12, 16
+    theme_text_color: "Custom"
+    text_color: 192/255,192/255,192/255
+    font_name: "alfont_com_arial-1.ttf"
+    
+    canvas.before:
+        Color:
+            rgb: (34/255,99/255,53/255)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [23, 23, 0, 23]
+
+    on_touch_down:
+        if self.collide_point(*args[1].pos):app.copy_message(self.text);app.show_toast()
+
+<ClickableLabel>
+    size_hint_y: None
+    pos_hint: {"x": .02}
+    height: self.texture_size[1]+ dp(32)  # Add padding for better spacing
+    padding: 12, 16
+    theme_text_color:"Custom"
+    markup:True
+    readonly:False
+    text_color: 192/255,192/255,192/255
+    font_size: 30
+    font_name: "alfont_com_arial-1.ttf"
+
+    canvas.before:
+        Color:
+            rgb: (47/255,60/255,72/255)
+        RoundedRectangle:
+            size: self.width, self.height
+            pos: self.pos
+            radius: [23, 23, 23, 0]
+
+    on_touch_down:
+        if self.collide_point(*args[1].pos): app.copy_message(self.text);app.show_toast()
+
+MDScreen:
+    bot_name : bot_name
+    text_input : text_input
+    chat_list : chat_list
+    spinner : spinner
+    name: "chats"
+    
+    FloatLayout:
+        Image:
+            source: 'bg_chat.png'  # Path to your background image
+            allow_stretch: True
+            keep_ratio: False
+    
+    MDFloatLayout:
+        MDFloatLayout:
+            md_bg_color: 126/255, 128/255, 165/255, 1
+            size_hint_y: .11
+            pos_hint: {"center_y": .95}
+            MDLabel:
+                id: bot_name
+                text: "VideoQuERI"
+                pos_hint: {"center_y": .5}
+                halign: "center"
+                font_size:"25sp"
+                theme_text_color:"Custom"
+                font_name: "Poppins-SemiBold.ttf"
+            
+        ScrollView:
+            size_hint_y: .77
+            pos_hint: {"x": 0, "y": .116}
+            do_scroll_x: False
+            do_scroll_y: True
+            BoxLayout:
+                id: chat_list
+                orientation: 'vertical'
+                size: (root.width, root.height)
+                height: self.minimum_height
+                size_hint:None, None
+                pso_hint:{'top' : 10}
+                cols:1
+                spacing: 5
+
+        MDFloatLayout:
+            md_bg_color: (47/255,60/255,72/255)
+            size_hint_y: .11
+            MDFloatLayout:
+            
+                size_hint: .80, .75
+                pos_hint: {"center_x": .43, "center_y": .5}
+            
+                canvas:
+                    Color:
+                        rgb: (59/255, 89/255, 93/255, 1)
+                    
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [23, 23, 23, 23]
+                    
+                
+                TextInput:
+                    id: text_input
+                    hint_text: "Ask Your Question..."
+                    size_hint: 1, None
+                    multiline: False
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    font_size: "20sp"
+                    height: self.minimum_height
+                    cursor_color: 1, 250/255, 250/255, 1
+                    cursor_width: "3sp"
+                    foreground_color: 1, 250/255, 250/255, 1
+                    background_color: 0,0,0,0
+                    padding: 15
+                    # font_name : "Poppins-Regular.ttf"
+                    font_name: "alfont_com_arial-1.ttf"
+
+            MDIconButton:
+                icon: "send"
+                pos_hint: {"center_x": .94, "center_y": .5}
+                user_font_size: "18sp"
+                theme_text_color: "Custom"
+                text_color: 1, 1, 1, 1
+                md_bg_color: 1, 170/255, 23/255, 1
+                on_release: app.send()
+        
+        MDIconButton:
+            icon: "arrow-left"  # Use the appropriate icon for going back
+            pos_hint: {"left": 0.05, "top": 0.986}
+            user_font_size: "18sp"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            md_bg_color: 47/255, 60/255, 72/255, 1  # Background color for the button
+            on_release: app.go_back()  # Replace 'app.go_back()' with your actual function to go back
+
+        MDSpinner:
+            id: spinner
+            size_hint: None, None
+            size: dp(46), dp(46)
+            palette: [[0.28627450980392155, 0.8431372549019608, 0.596078431372549, 1],[0.3568627450980392, 0.3215686274509804, 0.8666666666666667, 1],[0.8862745098039215, 0.36470588235294116, 0.592156862745098, 1],[0.8784313725490196, 0.9058823529411765, 0.40784313725490196, 1]]
+            pos_hint: {"center_x": .1, "center_y": .95}
+            active: False
+            opacity: 0
+        
+ 
+
+
+
+

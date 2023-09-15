@@ -1,0 +1,10 @@
+aiohttp==3.8.4
+arabic_reshaper==3.0.0
+curl_cffi==0.5.7
+gradio_client==0.5.0
+Kivy==2.2.1
+kivymd==1.1.1
+python_bidi==0.4.2
+pytube==15.0.0
+tls_client==0.2.1
+youtube_transcript_api==0.6.1
